@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regresi Linear Berganda</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 20px;
+    }
+
+    #container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+    <h2>Regresi Linear Berganda</h2>
+    <label for="yesterday">Jumlah Pelanggan Kemarin:</label>
+    <input type="number" id="yesterday" placeholder="Masukkan jumlah pelanggan kemarin">
+
+    <label for="today">Jumlah Pelanggan Hari Ini:</label>
+    <input type="number" id="today" placeholder="Masukkan jumlah pelanggan hari ini">
+
+    <button onclick="predictCustomers()">Prediksi Jumlah Pelanggan Besok</button>
+
+    <h3>Hasil Prediksi:</h3>
+    <p id="result"></p>
+
+    <script>
+      function predictCustomers() {
+        // Mendapatkan nilai input
+        var yesterday = parseFloat(document.getElementById('yesterday').value);
+        var today = parseFloat(document.getElementById('today').value);
+
+        // Menjalankan regresi linear sederhana
+        var predictedCustomers = 0.5 * yesterday + 0.7 * today;
+
+        // Menampilkan hasil prediksi
+        document.getElementById('result').innerHTML = "Prediksi jumlah pelanggan besok: " + predictedCustomers.toFixed(2);
+      }
+    </script>
+</div>
+</body>
+</html>
